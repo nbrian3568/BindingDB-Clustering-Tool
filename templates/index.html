@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BindingDB Ligand-Target Clustering Tool</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; 
+        padding: 1em; }
+    #results { margin-top: 20px; }
+    .uniprot-block {
+      border: 2px solid #ccc; padding: 10px; margin-bottom: 20px;
+      border-radius: 8px; background: #f9f9f9;
+    }
+    .uniprot-block h2 { color: #2c3e50; }
+    .file-links { margin-bottom: 15px; padding-left: 15px; }
+    .file-links a { display: block; margin: 5px 0; color: #007bff; 
+        text-decoration: none; }
+    .file-links a:hover { text-decoration: underline; }
+    .cluster { margin-top: 15px; padding: 10px; border: 1px solid #ddd; 
+        border-radius: 6px; background: #fff; }
+    .cluster img { max-width: 400px; display: block; margin: 5px 0; }
+    #status { margin-top: 15px; font-weight: bold; color: #555; }
+  </style>
+</head>
+<body>
+  <h1 style="text-align: center;">BindingDB Ligand-Target Clustering Tool</h1>
+  <p style="text-align: center;" style="margin-top: 80px">Choose a tsv file to input to cluster the ligands together based on
+    the target and get the smile strings, molecule drawings, and histograms 
+    with their affinities.
+  </p>
+  <form id="uploadForm" enctype="multipart/form-data" 
+        style="display: flex; justify-content: center; gap: 10px; margin-top: 60px;">
+    <input type="file" id="tsvFile" name="file" accept=".tsv" />
+    <button type="submit">Upload & Cluster</button>
+  </form>
+
+  <div id="status"></div>
+
+  <!-- This container will hold the UniProt dropdown -->
+  <div id="uniprotDropdownContainer"></div>
+
+  <div id="results"></div>
+
+  <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>
