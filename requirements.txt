@@ -99,6 +99,7 @@ gensim @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/gensim_
 gitdb @ file:///tmp/build/80754af9/gitdb_1617117951232/work
 GitPython @ file:///Users/builder/cbouss/perseverance-python-buildout/croot/gitpython_1699270358699/work
 greenlet @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_10cuim1il_/croot/greenlet_1702059962773/work
+gunicorn==23.0.0
 h5py @ file:///private/var/folders/c_/qfmhj66j0tn016nkx_th4hxm0000gp/T/abs_3cp9aol8sr/croot/h5py_1715094733268/work
 HeapDict @ file:///Users/ktietz/demo/mc3/conda-bld/heapdict_1630598515714/work
 holoviews @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_b74c4l22qo/croot/holoviews_1718294645425/work
