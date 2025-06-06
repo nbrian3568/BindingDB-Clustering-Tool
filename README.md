@@ -1,5 +1,5 @@
 # BindingDB-Clustering-Tool
-Web app to cluster BindingDB ligands by UniProt ID.
+Web based tool to cluster BindingDB ligands by UniProt ID.
 
 Steps:
 1) Upload a tsv file that has SMILE strings, affinity data, and UniProt IDs.
