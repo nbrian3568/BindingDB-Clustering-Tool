@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, jsonify, send_file, abort
 import os
 import uuid
-from faster_clustering_method import process_bindingdb_tsv
+from BindingDB_clustering import process_bindingdb_tsv
 
 app = Flask(__name__)
 
