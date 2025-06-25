@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cluster {{ cluster.cluster_id }} Details ({{ uniprot_id }})</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: auto; padding: 1em; background-color: #f8f9fa; }
+        h1, h2 { color: #333; }
+        img {
+            max-width: 100%;
+            margin: 1em 0;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+            background-color: white;
+        }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Cluster {{ cluster.cluster_id }} ({{ uniprot_id }})</h1>
+    <p><strong>Ligand Count:</strong> {{ cluster.count }}</p>
+    <p><strong>Affinity Range (log₁₀):</strong> {{ cluster.affinities | min | round(2) }} – {{ cluster.affinities | max | round(2) }}</p>
+
+    {% if cluster.representative %}
+        <h2>Representative Molecule</h2>
+        <img src="{{ url_for('static', filename='clusters/' + uniprot_id + '/' + cluster.representative) }}" alt="Representative Molecule">
+        {% if cluster.representative_affinity is defined %}
+            <p><strong>Affinity (log₁₀):</strong> {{ cluster.representative_affinity | round(2) }}</p>
+        {% endif %}
+    {% endif %}
+
+    {% if cluster.image %}
+        <h2>All Ligands</h2>
+        <img src="{{ url_for('static', filename='clusters/' + uniprot_id + '/' + cluster.image) }}" alt="Cluster Molecules">
+    {% endif %}
+
+    {% if cluster.histogram %}
+        <h2>Affinity Histogram</h2>
+        <img src="{{ url_for('static', filename='clusters/' + uniprot_id + '/' + cluster.histogram) }}" alt="Affinity Histogram">
+    {% endif %}
+
+    <p><a href="{{ url_for('show_clusters', uniprot_id=uniprot_id) }}">← Back to Cluster List</a></p>
+</body>
+</html>
